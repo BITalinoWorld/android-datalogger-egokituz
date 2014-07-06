@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BITlog</string>
+    <string name="title_activity_main">Bitalino Storage App</string>
+    <string name="title_activity_log_store">LogStoreActivity</string>
+    <string name="title_activity_bitalino_config">BitalinoConfig</string>
+	
+    <string name="buttonName1">Start</string>
+    <string name="buttonName2">Stop</string>
+    
+    <string name="textLabel">BITlog</string>
+    <string-array name="sampling_rate">
+        <item>1</item>
+        <item>10</item>
+        <item>100</item>
+        <item>1000</item>
+    </string-array>
+	
+</resources>

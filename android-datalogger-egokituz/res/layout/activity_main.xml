@@ -1,0 +1,113 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewBTDeviceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth devices: "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/spinnerBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/buttonBitalinoConf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bitalino Configuration" />
+
+        <Button
+            android:id="@+id/buttonLaunchStoreFiles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stored Files" />
+
+        <CheckBox
+            android:id="@+id/checkBoxSD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="External SD card" />
+
+        <Chronometer
+            android:id="@+id/chronometer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="50dp"
+            android:padding="20dp"
+            android:text="Chronometer"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of frames read " />
+
+            <TextView
+                android:id="@+id/tvFrames"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="File: " />
+
+            <TextView
+                android:id="@+id/TextViewFile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="..." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:paddingTop="30dp" >
+
+            <Button
+                android:id="@+id/buttonStart"
+                android:layout_width="167dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/buttonName1" />
+
+            <Button
+                android:id="@+id/buttonStop"
+                android:layout_width="182dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/buttonName2" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
