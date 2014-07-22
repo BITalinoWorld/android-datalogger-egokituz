@@ -7,4 +7,6 @@ Credits
 ===
 Borja Gamecho Ibañez
 
-Euskal Herriko Unibertsitateko
+University of the Basque Country
+
+EGOKITUZ laboratory
