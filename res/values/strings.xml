@@ -41,4 +41,12 @@
         <item>1000</item>
     </string-array>
 	
+     <!-- Bitalino LogStore Activity -->
+    
+    <string name="textViewLogIndexLabel">Log index</string>
+    <string name="buttonSendLog">Send Email</string>
+    <string name="buttonDeleteLog">Delete Log</string>
+    
+    
+    
 </resources>

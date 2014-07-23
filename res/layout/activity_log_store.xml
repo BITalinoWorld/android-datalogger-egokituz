@@ -7,10 +7,10 @@
 
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textViewLogIndexLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Log index"
+                android:text="@string/textViewLogIndexLabel"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Spinner
@@ -28,7 +28,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.31"    
-               	    android:text="Send Email"
+               	    android:text="@string/buttonSendLog"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                    />
 
@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"    
-                    android:text="Delete Log"
+                    android:text="@string/buttonDeleteLog"
                     android:textAppearance="?android:attr/textAppearanceLarge" 
                   />
                 

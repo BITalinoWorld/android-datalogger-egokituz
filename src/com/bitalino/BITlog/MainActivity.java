@@ -568,7 +568,6 @@ public class MainActivity extends Activity {
 							}
 
 						}
-
 					
 						msg_out.what = MSG_BITALINO;
 						msg_out.arg1 = packNum;

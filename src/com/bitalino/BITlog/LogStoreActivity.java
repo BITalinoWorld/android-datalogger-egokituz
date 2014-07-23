@@ -1,9 +1,6 @@
 package com.bitalino.BITlog;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
@@ -43,8 +40,6 @@ public class LogStoreActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_log_store);
-		
-		tv = (TextView) findViewById(R.id.textView3);
 		
 		buttonSendLog = (Button) findViewById(R.id.ButtonSendLog);
 		buttonSendLog.setOnClickListener(
