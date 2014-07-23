@@ -12,7 +12,9 @@ import java.util.Set;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -30,7 +32,6 @@ import android.widget.Chronometer;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.bitalino.BITlog.device.BitalinoThread;
@@ -76,6 +77,8 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		BITlog.setContext(this);
+		
+		sd_write = this.checkSD();
 
 		checkboxSD = (CheckBox) findViewById(R.id.checkBoxSD);
 		
@@ -94,8 +97,11 @@ public class MainActivity extends Activity {
 		   		    	   
 		    	   if(isChecked){
 		    		   checkValueSD = true;
+		    		   disableButtonStore(true);
+
 		    	   }else{
 		    		   checkValueSD = false;
+		    		   disableButtonStore(false);
 		    	   }
 			    		   
 		       }
@@ -111,6 +117,7 @@ public class MainActivity extends Activity {
 					}
 				});
 
+		
 		buttonStart = (Button) findViewById(R.id.buttonStart);
 		buttonStart.setOnClickListener(
 				new OnClickListener() {
@@ -121,7 +128,7 @@ public class MainActivity extends Activity {
 							configureBitalino();
 						}
 						looperThread.resetPackNum();
-						openNewFile();
+						createFile();
 						bitalinoThread.start();
 					}
 				});
@@ -196,6 +203,19 @@ public class MainActivity extends Activity {
 		looperThread.start();
 		Log.v(TAG, "MobileBit Activity --OnCreate()--");
 	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+//		Log.v(TAG, "MobileBit Activity --OnResume()--");
+		
+		if(checkboxSD.isChecked()){
+			disableButtonStore(true);
+		}else{
+			disableButtonStore(false);
+		}
+	}
+	
 
 
 	private int getIndex(Spinner spinner, String myString){
@@ -213,7 +233,7 @@ public class MainActivity extends Activity {
 	}
 
 	private static final int REQUEST_ENABLE_BT = 12;
-	public String[] getBluetoothDevices(){
+	private String[] getBluetoothDevices(){
 		String[] result = null;
 		ArrayList<String> devices = new ArrayList<String>(); 
 		BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();    
@@ -234,15 +254,75 @@ public class MainActivity extends Activity {
 		return result;
 
 	}
-	
-	
-	
-	
-	public void easyToast(String message){
-		Toast.makeText(getBaseContext(), message, Toast.LENGTH_SHORT).show();	  
+
+	/**
+	 * frameNumber
+	 * 	Sampling rate 1 --> 1
+	 * 	Sampling rate 10 --> 3
+	 *  Sampling rate 100 --> 30
+	 *  Sampling rate 1000 --> 300
+	 */
+	private void configureBitalino(){
+		try {
+			
+			bitalinoThread = new BitalinoThread(looperThread.mHandler,BITlog.MAC  );
+			// Configure the devices 
+			
+			bitalinoThread.setChannels(BITlog.channels);
+			
+			bitalinoThread.setSampleRate(BITlog.SamplingRate);
+
+			//Calculate frame number:
+			BITlog.frameRate = 1;
+			if(BITlog.SamplingRate>1){
+				BITlog.frameRate = 3 * BITlog.SamplingRate/10;			
+			}
+
+			bitalinoThread.setNumFrames(BITlog.frameRate);
+			bitalinoThread.setDownsamplingOn(false);
+//			bitalinoThread.setMode(BITalinoDevice.LIVE_MODE);	
+
+		} catch (Exception e) {
+			Log.v(TAG, "Error creating the Bitalino Thread");
+			e.printStackTrace();
+		}
 	}
 
-	public void openNewFile(){
+
+	private boolean checkSD(){
+
+		boolean sdAvailable = false;
+		boolean sdWriteAccess= false;
+		
+		// Check external memory status
+		String sdStatus = Environment.getExternalStorageState();
+
+		
+		if (sdStatus.equals(Environment.MEDIA_MOUNTED))
+		{
+			sdAvailable = true;
+			sdWriteAccess = true;
+			sd_write = true;
+		}
+		else if (sdStatus.equals(Environment.MEDIA_MOUNTED_READ_ONLY))
+		{
+			sdAvailable = true;
+			sdWriteAccess = false;
+		}
+		else
+		{
+			sdAvailable = false;
+			sdWriteAccess = false;
+		}
+
+		Log.v(TAG, (sdAvailable? "Media mounted": "Media unmounted"));
+		Log.v(TAG, "SD Write "+(sdWriteAccess? "true": "false"));
+		
+		return sdAvailable & sdWriteAccess;
+	}
+	
+	
+	private void createFile(){
 		Log.v(TAG, "UI BUtton pressed: Store Block - createFile()");
 		if(fout==null){
 
@@ -306,7 +386,7 @@ public class MainActivity extends Activity {
 			}else{
 				try
 				{
-					fout= new OutputStreamWriter(openFileOutput(filename,MODE_WORLD_READABLE));	   
+					fout= new OutputStreamWriter(openFileOutput(filename,MODE_WORLD_WRITEABLE));	   
 					Log.v(TAG, "Log file: "+filename+" created in the internal memory");
 					fout.write(line);
 					//Log.v(TAG, "Write: \n\t"+line);
@@ -326,7 +406,7 @@ public class MainActivity extends Activity {
 
 	}
 
-	public void closeFile(){
+	private void closeFile(){
 		Log.v(TAG, "UI BUtton pressed: Store Block - closeFile()");
 
 		if(fout!=null){
@@ -335,7 +415,6 @@ public class MainActivity extends Activity {
 				fout.close();
 				fout = null;
 				Log.v(TAG, "File closed "+filename);
-
 			} catch (IOException e) {
 				Log.e(TAG, "Error at writing in internal memory");
 				e.printStackTrace();
@@ -343,121 +422,33 @@ public class MainActivity extends Activity {
 
 		}
 
-
 	}
-
-	public void launchStore(){
+	
+	private void disableButtonStore(boolean disable){
+		if(disable){
+			buttonLaunchStoreFiles.setEnabled(false);
+			buttonLaunchStoreFiles.setClickable(false);
+		}else{
+//			buttonLaunchStoreFiles.setEnabled(true);
+//			buttonLaunchStoreFiles.setClickable(true);
+		}
+		
+	}
+	
+	private void launchStore(){
 		Intent intent = new Intent(this, LogStoreActivity.class);
 		startActivity(intent); 
 	}
 
-	public void launchConfigure(){
+	private void launchConfigure(){
 		Intent intent = new Intent(this, BitalinoConfigActivity.class);
 		startActivity(intent); 
 	}
 
-	/**
-	 * frameNumber
-	 * 	Sampling rate 1 --> 1
-	 * 	Sampling rate 10 --> 3
-	 *  Sampling rate 100 --> 30
-	 *  Sampling rate 1000 --> 300
-	 */
-	public void configureBitalino(){
-		try {
-			
-			bitalinoThread = new BitalinoThread(looperThread.mHandler,BITlog.MAC  );
-			// Configure the devices 
-			
-			bitalinoThread.setChannels(BITlog.channels);
-			
-			bitalinoThread.setSampleRate(BITlog.SamplingRate);
 
-			//Calculate frame number:
-			BITlog.frameRate = 1;
-			if(BITlog.SamplingRate>1){
-				BITlog.frameRate = 3 * BITlog.SamplingRate/10;			
-			}
-
-			bitalinoThread.setNumFrames(BITlog.frameRate);
-			bitalinoThread.setDownsamplingOn(false);
-//			bitalinoThread.setMode(BITalinoDevice.LIVE_MODE);	
-
-		} catch (Exception e) {
-			Log.v(TAG, "Error creating the Bitalino Thread");
-			e.printStackTrace();
-		}
-	}
-
-
-	private boolean checkSD(){
-
-		boolean sdAvailable = false;
-		boolean sdWriteAccess= false;
-		
-		// Check external memory status
-		String sdStatus = Environment.getExternalStorageState();
-
-		
-		if (sdStatus.equals(Environment.MEDIA_MOUNTED))
-		{
-			sdAvailable = true;
-			sdWriteAccess = true;
-			sd_write = true;
-		}
-		else if (sdStatus.equals(Environment.MEDIA_MOUNTED_READ_ONLY))
-		{
-			sdAvailable = true;
-			sdWriteAccess = false;
-		}
-		else
-		{
-			sdAvailable = false;
-			sdWriteAccess = false;
-		}
-
-		Log.v(TAG, (sdAvailable? "Media mounted": "Media unmounted"));
-		Log.v(TAG, "SD Write "+(sdWriteAccess? "true": "false"));
-		
-		return sdAvailable & sdWriteAccess;
-	}
-	
-	@Override 
-	public void onStart(){
-		super.onStart();
-	
-		sd_write = this.checkSD();
-
-		Log.v(TAG, "MobileBit Activity --OnStart()--");
-	}
-
-	public void onResume(){
-		super.onResume();
-		Log.v(TAG, "MobileBit Activity --OnResume()--");
-	}
-
-	public void onPause(){
-		Log.v(TAG, "MobileBit Activity --OnPause()--");
-		super.onPause();
-	}
-
-	public void onStop(){
-		Log.v(TAG, "MobileBit Activity --OnStop()--");
-		super.onStop();
-	}
-
-	public void onRestart(){
-		super.onRestart();
-		Log.v(TAG, "MobileBit Activity --OnRestart()--");
-	}
-
-	@Override
-	public void onDestroy(){
-		Log.v(TAG, "MobileBit Activity --OnDestroy()--");
-		super.onDestroy();	
-	}
-	
-	
+    
+    public final int MSG_CHRONO = 1;
+    public final int MSG_BITALINO = 2;
 	public Handler myHandler = new Handler(Looper.getMainLooper()){
         @Override
         public void handleMessage(Message inputMessage) {
@@ -484,13 +475,8 @@ public class MainActivity extends Activity {
     };
     
     
-    public final int MSG_CHRONO = 1;
-    public final int MSG_BITALINO = 2;
-    
     /**
      * 
-     * @author borja
-     *
      */
 	public class StoreLooperThread extends Thread {
 		public Handler mHandler;

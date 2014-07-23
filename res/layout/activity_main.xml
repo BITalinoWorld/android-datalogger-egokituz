@@ -67,7 +67,9 @@
                 android:id="@+id/textViewFrames"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
                 android:text="@string/textViewFrames" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -85,7 +87,9 @@
                 android:id="@+id/TextViewFileName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
                 android:text="@string/textViewFileDefaultName" />
+
         </LinearLayout>
 
         <LinearLayout

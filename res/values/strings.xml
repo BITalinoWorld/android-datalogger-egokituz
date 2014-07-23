@@ -11,13 +11,13 @@
     
     <string name="textViewBTDeviceLabel">Bluetooth devices: </string>
     <string name="buttonBitalinoConf">Bitalino Configuration</string>
-    <string name="buttonLaunchStoreFiles">Stored Files</string>
-    <string name="checkBoxSD">External SD card</string>
+    <string name="buttonLaunchStoreFiles">Internally Stored Files</string>
+    <string name="checkBoxSD">Use external storage</string>
     <string name="chronometer1">Chronometer</string>
     <string name="textViewFramesLabel">Number of frames read:  </string>
     <string name="textViewFrames">0</string>
     <string name="textViewFileLabel">File: </string>
-    <string name="textViewFileDefaultName">___</string>
+    <string name="textViewFileDefaultName">________________</string>
     <string name="buttonStart">Start</string>
     <string name="buttonStop">Stop</string>
     
@@ -25,14 +25,14 @@
     
     <string name="textViewSamplingRateLabel">Sampling Rate</string>
     <string name="TextView01">Channel Selection:</string>
-    <string name="checkBoxCh1">1</string>
-    <string name="checkBoxCh2">2</string>
-    <string name="checkBoxCh3">3</string>
-    <string name="checkBoxCh4">4</string>    
-    <string name="checkBoxCh5">5</string>
-    <string name="checkBoxCh6">6</string>    
+    <string name="checkBoxCh1">1 - EMG</string>
+    <string name="checkBoxCh2">2 - EDA</string>
+    <string name="checkBoxCh3">3 - ECG</string>
+    <string name="checkBoxCh4">4 - ACC</string>    
+    <string name="checkBoxCh5">5 - LUX</string>
+    <string name="checkBoxCh6">6 - BATT</string>    
     
-    <string name="checkBoxDout">"Digital Outputs"</string>
+    <string name="checkBoxDout">"Digital Inputs [ I1, I2, I3, I4 ]"</string>
     
     <string-array name="sampling_rate">
         <item>1</item>

@@ -1,6 +1,9 @@
 package com.bitalino.BITlog;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
@@ -107,38 +110,6 @@ public class LogStoreActivity extends Activity {
 		spinnerFiles.setAdapter(spinnerArrayFiles);
 		spinnerFiles.setSelection(0);
 	}
-	
-	@Override 
-	public void onStart(){
-		super.onStart();
-		Log.v(TAG, "MobileBit Activity --OnStart()--");
-	}
-	
-	public void onResume(){
-		super.onResume();
-		Log.v(TAG, "MobileBit Activity --OnResume()--");
-	}
-	
-	public void onPause(){
-		Log.v(TAG, "MobileBit Activity --OnPause()--");
-		super.onPause();
-	}
-
-	public void onStop(){
-		Log.v(TAG, "MobileBit Activity --OnStop()--");
-		super.onStop();
-	}
-	
-	public void onRestart(){
-		super.onRestart();
-		Log.v(TAG, "MobileBit Activity --OnRestart()--");
-	}
-
-	@Override
-	public void onDestroy(){
-		Log.v(TAG, "MobileBit Activity --OnDestroy()--");
-		super.onDestroy();	
-	}
 
 	/**
 	 * 
@@ -164,21 +135,21 @@ public class LogStoreActivity extends Activity {
 	      
 	      
 	    //*****************
-//	      
-//		File f = ctx.getFilesDir();
-//		Log.v(TAG, "ctx.getFilesDir: "+f);
-//		String[] myList = ctx.fileList();
-//		for(String myL : myList)
-//			Log.v(TAG, "...filesList: "+myL);
-//		
+	      
+		File f = ctx.getFilesDir();
+		Log.v(TAG, "ctx.getFilesDir: "+f);
+		String[] myList = ctx.fileList();
+		for(String myL : myList)
+			Log.v(TAG, "...filesList: "+myL);
+		
 		//*****************
 	      
-	   
+//		String temp="";
 //		try {
 //			FileInputStream fin = openFileInput(filename.toString());
 //			
 //			int c;
-//			String temp="";
+//
 //			while( (c = fin.read()) != -1){
 //			   temp = temp + Character.toString((char)c);
 //			}
@@ -191,11 +162,18 @@ public class LogStoreActivity extends Activity {
 //			e.printStackTrace();
 //		}
 //	      
-		//emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(filename));
+		
+		
+//		emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(filename));
 		  
-		emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(exportPath));
-		  
-		//emailIntent.putExtra(Intent.EXTRA_STREAM,"/data/data/com.bitalino.BITlog/files/"+filename);
+//		emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(exportPath));
+		
+		File myFile = new File(ctx.getFilesDir() + File.separator + filename);
+		emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(myFile));
+		
+		//emailIntent.putExtra(Intent.EXTRA_STREAM, ctx.getFilesDir().getPath() +filename);
+
+		//emailIntent.putExtra(Intent.EXTRA_STREAM, "/data/data/com.bitalino.BITlog/files/"+filename);
 	      
 		ctx.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
   	
