@@ -9,7 +9,7 @@
         android:id="@+id/textViewSamplingRateLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sampling Rate"
+        android:text="@string/textViewSamplingRateLabel"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
@@ -22,7 +22,7 @@
         android:id="@+id/TextView01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Channel Selection:"
+        android:text="@string/TextView01"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
@@ -35,14 +35,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="One 1" />
+            android:text="@string/checkBoxCh1" />
 
         <CheckBox
             android:id="@+id/checkBoxCh4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Four 4" />
+            android:text="@string/checkBoxCh4" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,14 +55,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Two 2" />
+            android:text="@string/checkBoxCh2" />
 
         <CheckBox
             android:id="@+id/checkBoxCh5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Five 5" />
+            android:text="@string/checkBoxCh5" />
     </LinearLayout>
 
     <LinearLayout
@@ -75,14 +75,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Three 3" />
+            android:text="@string/checkBoxCh3" />
 
         <CheckBox
             android:id="@+id/checkBoxCh6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Six 6" />
+            android:text="@string/checkBoxCh6"/>
     </LinearLayout>
 
     <CheckBox
@@ -90,6 +90,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Digital Outputs" />
+        android:text="@string/checkBoxDout" />
     
 </LinearLayout>

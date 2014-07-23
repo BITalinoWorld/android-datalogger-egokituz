@@ -34,7 +34,7 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.bitalino.BITlog.device.BitalinoThread;
-import com.bitalino.comm.BITalinoDevice;
+//import com.bitalino.comm.BITalinoDevice;
 import com.bitalino.comm.BITalinoFrame;
 
 /**
@@ -187,9 +187,9 @@ public class MainActivity extends Activity {
 		
 		chronometer = (Chronometer) findViewById(R.id.chronometer1);
 		
-		tvFrames = (TextView) findViewById(R.id.tvFrames);
+		tvFrames = (TextView) findViewById(R.id.textViewFrames);
 
-		tvFile = (TextView) findViewById(R.id.TextViewFile);
+		tvFile = (TextView) findViewById(R.id.TextViewFileName);
 		
 		
 		looperThread= new StoreLooperThread();
@@ -336,16 +336,6 @@ public class MainActivity extends Activity {
 				fout = null;
 				Log.v(TAG, "File closed "+filename);
 
-				// TODO Test what they return
-				//				File f = getFilesDir();
-				//				Log.v(TAG, "ctx.getFilesDir: "+f);
-				//				String[] myList = fileList();
-				//				for(String myL : myList)
-				//					Log.v(TAG, "...filesList: "+myL);
-				//				
-				//				Log.v(TAG, myList.toString());
-				//				
-
 			} catch (IOException e) {
 				Log.e(TAG, "Error at writing in internal memory");
 				e.printStackTrace();
@@ -391,7 +381,7 @@ public class MainActivity extends Activity {
 
 			bitalinoThread.setNumFrames(BITlog.frameRate);
 			bitalinoThread.setDownsamplingOn(false);
-			bitalinoThread.setMode(BITalinoDevice.LIVE_MODE);	
+//			bitalinoThread.setMode(BITalinoDevice.LIVE_MODE);	
 
 		} catch (Exception e) {
 			Log.v(TAG, "Error creating the Bitalino Thread");
@@ -572,7 +562,6 @@ public class MainActivity extends Activity {
 
 									//  Log.v(TAG, "Write: \n\t"+line);
 								} catch (IOException e) {
-									// TODO Auto-generated catch block
 									Log.v(TAG, "Error writing to the file "+line);
 									//e.printStackTrace();
 								}

@@ -21,7 +21,7 @@ public class BitalinoThread extends BTDeviceThread{
 	private int sample_rate;
 	private int nFrames;
 	private int packNum;
-	private int bitalinoMode; 
+//	private int bitalinoMode; 
 	private boolean downsample = false;
 	
 	private BITalinoDevice _bitalino_dev = null;
@@ -43,16 +43,16 @@ public class BitalinoThread extends BTDeviceThread{
 
 	}
 	
-	public void setLed(boolean val){
-		int led = (val) ? 1 : 0;
-		int[] digOutputs = {0, 0, led, 0};
-		try {
-			_bitalino_dev.setDigitalOutput(digOutputs);
-		} catch (BITalinoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//	public void setLed(boolean val){
+//		int led = (val) ? 1 : 0;
+//		int[] digOutputs = {0, 0, led, 0};
+//		try {
+//			_bitalino_dev.setDigitalOutput(digOutputs);
+//		} catch (BITalinoException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	
 	int[] channels; 
 	public void setChannels(int[] channels){
@@ -75,7 +75,8 @@ public class BitalinoThread extends BTDeviceThread{
 			
 			//_bitalino_dev.setBattThreshold(3.8); // Only Works in LIVE MODE
 						
-			_bitalino_dev.start(this.bitalinoMode, channels);
+//			_bitalino_dev.start(this.bitalinoMode, channels);
+			_bitalino_dev.start();
 		
 			// Led in the Bitalino Boards, blinks twice
 //			if(_bitalino_dev.getMode()==BITalinoDevice.LIVE_MODE){
@@ -176,9 +177,9 @@ public class BitalinoThread extends BTDeviceThread{
 		this.nFrames = nFrames;
 	}	
 
-	public void setMode(int Mode){
-			this.bitalinoMode = Mode;
-	}
+//	public void setMode(int Mode){
+//			this.bitalinoMode = Mode;
+//	}
 	
 	public void setDownsamplingOn(boolean downsample){
 		this.downsample = downsample;

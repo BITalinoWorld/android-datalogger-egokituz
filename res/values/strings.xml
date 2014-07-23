@@ -5,11 +5,35 @@
     <string name="title_activity_main">Bitalino Storage App</string>
     <string name="title_activity_log_store">LogStoreActivity</string>
     <string name="title_activity_bitalino_config">BitalinoConfig</string>
-	
-    <string name="buttonName1">Start</string>
-    <string name="buttonName2">Stop</string>
-    
     <string name="textLabel">BITlog</string>
+    
+    <!-- Main Activity -->
+    
+    <string name="textViewBTDeviceLabel">Bluetooth devices: </string>
+    <string name="buttonBitalinoConf">Bitalino Configuration</string>
+    <string name="buttonLaunchStoreFiles">Stored Files</string>
+    <string name="checkBoxSD">External SD card</string>
+    <string name="chronometer1">Chronometer</string>
+    <string name="textViewFramesLabel">Number of frames read:  </string>
+    <string name="textViewFrames">0</string>
+    <string name="textViewFileLabel">File: </string>
+    <string name="textViewFileDefaultName">___</string>
+    <string name="buttonStart">Start</string>
+    <string name="buttonStop">Stop</string>
+    
+    <!-- Bitalino Config Activity -->
+    
+    <string name="textViewSamplingRateLabel">Sampling Rate</string>
+    <string name="TextView01">Channel Selection:</string>
+    <string name="checkBoxCh1">1</string>
+    <string name="checkBoxCh2">2</string>
+    <string name="checkBoxCh3">3</string>
+    <string name="checkBoxCh4">4</string>    
+    <string name="checkBoxCh5">5</string>
+    <string name="checkBoxCh6">6</string>    
+    
+    <string name="checkBoxDout">"Digital Outputs"</string>
+    
     <string-array name="sampling_rate">
         <item>1</item>
         <item>10</item>
