@@ -1,12 +1,12 @@
 [BITalino](http://www.bitalino.com) DataLogger for Android
 ===
-This application stores data from the BITalino board in the smartphone. 
+Android application to store data from the BITalino board in the smartphone. 
 
 ## Features
 * Select between different Bitalino devices
 * Configure the sampling rate and the channels to store data
 * Two storage modes available: 
-* * App internal - use email to send the logs
+* * (Disabled) App internal - use email to send the logs
 * * App external - use any usb to uSD card converter to get the logs
 
 ## Screenshots
@@ -14,7 +14,7 @@ This application stores data from the BITalino board in the smartphone.
 
 Credits
 ===
-Borja Gamecho Iba√Òez
+Borja Gamecho Iba√±ez
 
 University of the Basque Country
 
