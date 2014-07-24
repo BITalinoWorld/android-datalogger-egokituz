@@ -2,11 +2,16 @@
 ===
 Android application to store data-logs from the BITalino board in the smartphone. 
 
-## Features
-* Select between different bluetooth devices (only works with BITalino protocol compliant devices)
-* Configure the sampling rate and the channels to store data. Channel labels are sorted with the Board model order, if you have a Bitalino Plugged or Freestyle models they could be in a different order
-* App external storage mode - use any usb to uSD card converter to get the logs or a file explorer app to access the BITlog folder in your Android.
-* [OpenSignals](http://bitalino.com/index.php/software) like logs with selected analog channel and digital input data. 
+## Features 
+Unmarked features are going to be added eventually
+- [x] Select between different bluetooth devices (only works with BITalino protocol compliant devices)
+- [x] Configure the sampling rate and the channels to store data. Channel labels are sorted with the Board model order, if you have a Bitalino Plugged or Freestyle models they could be in a different order
+- [x] App external storage mode 
+  - Use a file explorer app to access the BITlog folder in your Android
+  - Use any usb to uSD card converter to get the logs 
+- [x] [OpenSignals](http://bitalino.com/index.php/software) like logs with selected analog channel and digital input data. 
+- [ ] App internal storage mode (disabled)
+  - Send logs via email (not working yet)
 
 ## Configuration for Eclipse
 1. To run properly this project first you must download the bitalino-java-sdk and the Guava libraries: 
