@@ -10,19 +10,17 @@ Android application to store data-logs from the BITalino board in the smartphone
 
 ## Configuration for Eclipse
 1. To run properly this project first you must download the bitalino-java-sdk and the Guava libraries: 
-* bitalino-java-sdk https://github.com/BITalinoWorld/java-sdk
-* Guava https://code.google.com/p/guava-libraries/
-
-2. After downloading the code of the datalogger for Android, add the previously mentioned projects to the build path ( Project -> Properties -> Java Build Path ): 
-  1. bitalinojava-sdk as a project in the Projects tab 
+  * bitalino-java-sdk https://github.com/BITalinoWorld/java-sdk
+  * Guava https://code.google.com/p/guava-libraries/
+2. After downloading the code of the datalogger for Android, add the previously mentioned projects to the build path ( Project -> Properties -> Java Build Path )
+  * bitalinojava-sdk as a project in the Projects tab 
 ![](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-projects.png)
-  2. guava-17.0.jar as an external library in Libraries tab
-![](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-external-jars.png)
-
+  * guava-17.0.jar as an external library in Libraries tab
+![](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-external-jars.png) 
 3. VERY IMPORTANT!, change the order in the "Order and Export" tab to avoid runtime errors with the libraries 
-  1. Before modifying the order:
+  * Before modifying the order:
 ![Before modifying the order](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-before.png)
-  2. After modifying the order:
+  * After modifying the order:
 ![After modifying the order](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-after.png)
 
 4. Run the application and enjoy gathering data from your BITalino device :)
