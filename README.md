@@ -4,27 +4,29 @@ Android application to store data-logs from the BITalino board in the smartphone
 
 ## Features
 * Select between different bluetooth devices (only works with BITalino protocol compliant devices)
-* Configure the sampling rate and the channels to store data
+* Configure the sampling rate and the channels to store data. Channel labels are sorted with the Board model order, if you have a Bitalino Plugged or Freestyle models they could be in a different order
 * App external storage mode - use any usb to uSD card converter to get the logs or a file explorer app to access the BITlog folder in your Android.
+* [OpenSignals](http://bitalino.com/index.php/software) like logs with selected analog channel and digital input data. 
 
 ## Configuration for Eclipse
-To run properly this project first you must download the bitalino-java-sdk and the Guava libraries: 
+1. To run properly this project first you must download the bitalino-java-sdk and the Guava libraries: 
 * bitalino-java-sdk https://github.com/BITalinoWorld/java-sdk
 * Guava https://code.google.com/p/guava-libraries/
 
-After downloading the code of the datalogger for Android, add the previously mentioned projects to the build path ( Project -> Properties -> Java Build Path ): 
-* bitalinojava-sdk as a project in the Projects tab 
+2. After downloading the code of the datalogger for Android, add the previously mentioned projects to the build path ( Project -> Properties -> Java Build Path ): 
+  1. bitalinojava-sdk as a project in the Projects tab 
 ![](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-projects.png)
-* guava-17.0.jar as an external library in Libraries tab
+  2. guava-17.0.jar as an external library in Libraries tab
 ![](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-external-jars.png)
 
-** VERY IMPORTANT!, change the order in the "Order and Export" tab to avoid runtime errors with the libraries: **
-* Before modifying the order:
+3. VERY IMPORTANT!, change the order in the "Order and Export" tab to avoid runtime errors with the libraries 
+  1. Before modifying the order:
 ![Before modifying the order](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-before.png)
-* After modifying the order
+  2. After modifying the order:
 ![After modifying the order](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-after.png)
 
-    
+4. Run the application and enjoy gathering data from your BITalino device :)
+ 
 ## Screenshots
 #### **Application Main Screen:**
 
