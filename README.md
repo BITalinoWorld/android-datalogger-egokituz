@@ -12,7 +12,7 @@ To run properly this project first you must download the bitalino-java-sdk and t
 * bitalino-java-sdk https://github.com/BITalinoWorld/java-sdk
 * Guava https://code.google.com/p/guava-libraries/
 
-After downloading the code of the datalogger for Android, add them to the build path ( Project -> Properties -> Java Build Path ): 
+After downloading the code of the datalogger for Android, add the previously mentioned projects to the build path ( Project -> Properties -> Java Build Path ): 
 * bitalinojava-sdk as a project in the Projects tab 
 ![](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-projects.png)
 * guava-17.0.jar as an external library in Libraries tab
@@ -26,16 +26,15 @@ After downloading the code of the datalogger for Android, add them to the build 
 
     
 ## Screenshots
-**Application Main Screen:**
+#### **Application Main Screen:**
 
 ![Main screen](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/main1.png)
 
-**BITalino configuration screen:**
+#### **BITalino configuration screen:**
 
 ![Bitalino configuration screen](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/Configuration.png)
 
-Credits
-===
+##Credits
 [Borja Gamecho](https://github.com/bgamecho)
 
 [University of the Basque Country (UPV/EHU)](http://www.ehu.es/)
