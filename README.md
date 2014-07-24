@@ -18,30 +18,26 @@ After downloading the code of the datalogger for Android, add them to the build 
 * guava-17.0.jar as an external library in Libraries tab
 ![](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-external-jars.png)
 
-VERY IMPORTANT!, change the order in the "Order and Export" tab to avoid runtime errors with the libraries: 
-Before modifying the order:
+** VERY IMPORTANT!, change the order in the "Order and Export" tab to avoid runtime errors with the libraries: **
+* Before modifying the order:
 ![Before modifying the order](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-before.png)
-After modifying the order
+* After modifying the order
 ![After modifying the order](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/step-by-step/bitalino-logger-conf-after.png)
 
     
-    
 ## Screenshots
-Application Main Screen:
-
+**Application Main Screen:**
 
 ![Main screen](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/main1.png)
 
-
-BITalino configuration screen: 
+**BITalino configuration screen:**
 
 ![Bitalino configuration screen](https://github.com/BITalinoWorld/android-datalogger-egokituz/blob/master/readme-images/Configuration.png)
 
-
 Credits
 ===
-Borja Gamecho Ibañez
+[Borja Gamecho](https://github.com/bgamecho)
 
-University of the Basque Country
+[University of the Basque Country (UPV/EHU)](http://www.ehu.es/)
 
-EGOKITUZ laboratory
+[EGOKITUZ](http://www.egokituz.org/) laboratory 
