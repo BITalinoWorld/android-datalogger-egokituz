@@ -3,7 +3,7 @@
 Android application to store data-logs from the BITalino board in the smartphone. 
 
 ## Features 
-Unmarked features are going to be added eventually
+Unmarked features will be added eventually
 - [x] Select between different bluetooth devices (only works with BITalino protocol compliant devices)
 - [x] Configure the sampling rate and the channels to store data. Channel labels are sorted with the Board model order, if you have a Bitalino Plugged or Freestyle models they could be in a different order
 - [x] App external storage mode 
